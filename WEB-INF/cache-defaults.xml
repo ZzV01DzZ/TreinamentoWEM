@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<defaults
+        xmlns="http://www.vignette.com/schema/HPD/cache-defaults"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+            http://www.vignette.com/schema/HPD/cache-defaults
+                http://www.vignette.com/schema/HPD/cache-defaults"
+        >
+
+    <!--
+       - These settings will serve as the defaults for newly-created
+       - CachingContexts whose request URL doesn't match any of of
+       - the url-patterns in the pattern-default blocks that follow.
+      -->
+    <pattern-default>
+        <url-pattern>/sites/scripts/.*</url-pattern>
+        <cacheable>default-yes</cacheable>
+        <allow-stale>true</allow-stale>
+        <time-to-live>864000000</time-to-live>
+    </pattern-default>
+
+    <pattern-default>
+        <url-pattern>.*\.(js|css|gif|jpeg|jpg)</url-pattern>
+        <cacheable>default-yes</cacheable>
+        <allow-stale>true</allow-stale>
+        <time-to-live>864000000</time-to-live>
+    </pattern-default>
+</defaults>

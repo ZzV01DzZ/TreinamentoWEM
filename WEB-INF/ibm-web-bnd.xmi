@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.ejs.models.base.bindings.webappbnd:WebAppBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.ejs.models.base.bindings.webappbnd="webappbnd.xmi" xmi:id="WebAppBinding_vgnhpdsample">
+  <webapp href="WEB-INF/web.xml#VgnExtTemplating"/>
+  <resRefBindings xmi:id="ResourceRefBinding_HpdDbResourceRef" jndiName="jdbc/hpdDataSource">
+    <bindingResourceRef href="WEB-INF/web.xml#HpdDbResourceRef"/>
+  </resRefBindings>
+</com.ibm.ejs.models.base.bindings.webappbnd:WebAppBinding>

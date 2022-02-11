@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!--
+  - Application context definition for DispatcherServlet.
+  -->
+
+<beans>
+    <!-- Simple URL based handler mapping -->
+	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+            <props>
+                <prop key="/**/page">vgnExtPageController</prop>
+                <prop key="/**/region">vgnExtRegionController</prop>
+                <prop key="/**/item">vgnExtItemController</prop>
+                <prop key="/**/pagelayout">vgnExtPageLayoutController</prop>
+                <prop key="/**/theme">vgnExtThemeController</prop>
+                <prop key="/**/component">vgnExtComponentController</prop>
+                <prop key="/**/page/manualsettings">vgnExtManualSettingsController</prop>
+                <prop key="/**/component/processaction">vgnExtActionController</prop>
+            </props>
+		</property>
+	</bean>
+
+    <!-- View resolver for action controllers -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
+        <property name="location" value="classpath:com/vignette/ext/templating/mvc/config/views.xml"/> 
+    </bean>
+    
+</beans>

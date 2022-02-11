@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<defaults
+        xmlns="http://www.vignette.com/schema/HPD/cache-defaults"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+            http://www.vignette.com/schema/HPD/cache-defaults
+                http://www.vignette.com/schema/HPD/cache-defaults"
+        >
+
+    <!--
+       - These settings will serve as the defaults for newly-created
+       - CachingContexts whose request URL doesn't match any of of
+       - the url-patterns in the pattern-default blocks that follow.
+      -->
+    <global-default>
+		<cacheable>default-no</cacheable>
+        <time-to-live>30000</time-to-live>
+        <regen>auto</regen>
+        <allow-stale>true</allow-stale>
+        <ignore-cache-control-headers>true</ignore-cache-control-headers>
+    </global-default>
+
+    <pattern-default>
+        <url-pattern>/HPD/nocache/.*\.jsp</url-pattern>
+        <cacheable>never</cacheable>
+    </pattern-default>
+
+    <pattern-default>
+		<url-pattern>/HPD/byquerystring/.*\.jsp</url-pattern>
+		<cacheable>default-yes</cacheable>
+        <time-to-live>25000</time-to-live>
+        <regen>never</regen>
+        <vary-by-query-string>true</vary-by-query-string>
+	</pattern-default>
+
+    <pattern-default>
+        <url-pattern>/HPD/byheaders/.*\.jsp</url-pattern>
+        <cacheable>default-yes</cacheable>
+        <regen>always</regen>
+        <allow-stale>false</allow-stale>
+        <vary-by-header>
+            <header-name>Accept-Language</header-name>
+            <header-name>Accept-Encoding</header-name>
+        </vary-by-header>
+    </pattern-default>
+
+    <pattern-default>
+        <url-pattern>/HPD/bycookies/.*\.jsp</url-pattern>
+        <cacheable>default-yes</cacheable>
+        <vary-by-cookie>
+            <cookie-name>cookie1</cookie-name>
+            <cookie>
+                <name>cookie2</name>
+                <default>abc</default>
+            </cookie>
+        </vary-by-cookie>
+    </pattern-default>
+
+    <pattern-default>
+        <url-pattern>/HPD/byheaderexistence/.*\.jsp</url-pattern>
+        <cacheable>default-yes</cacheable>
+        <vary-by-header-existence>
+            <header-name>Authenticated-User</header-name>
+        </vary-by-header-existence>
+    </pattern-default>
+
+    <pattern-default>
+        <url-pattern>/HPD/bycookieexistence/.*\.jsp</url-pattern>
+        <cacheable>default-yes</cacheable>
+        <vary-by-cookie-existence>
+            <cookie-name>cookie1</cookie-name>
+        </vary-by-cookie-existence>
+    </pattern-default>
+
+    <pattern-default>
+        <url-pattern>/HPD/bysessionattr/.*\.jsp</url-pattern>
+        <cacheable>default-yes</cacheable>
+        <vary-by-session-attribute>
+            <attribute>
+                <name>language</name>
+            </attribute>
+        </vary-by-session-attribute>
+    </pattern-default>
+
+    <pattern-default>
+        <url-pattern>/HPD/ssi/.*\.jsp</url-pattern>
+        <parse-ssi>true</parse-ssi>
+    </pattern-default>
+            
+</defaults>

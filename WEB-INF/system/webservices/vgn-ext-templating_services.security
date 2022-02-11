@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<security>
+	
+	<service>
+	   <name>CacheService</name>
+	   <signature_required>true</signature_required>
+	   <enabled>true</enabled>
+	   <notary>com.vignette.webservices.toolkit.security.AlwaysAcceptSoapNotary</notary>
+	</service>
+	<service>
+	   <name>DPMSearchService</name>
+	   <signature_required>true</signature_required>
+	   <enabled>true</enabled>
+	   <notary>com.vignette.webservices.toolkit.security.FileBaseNotary</notary>
+	</service>
+	
+</security>
+

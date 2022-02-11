@@ -1,0 +1,1420 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
+  <description>Dynamic Site Module and Dynamic Portal module Tag library</description>
+  <display-name>Dynamic Site Module and Dynamic Portal module Tag library</display-name>
+  <tlib-version>1.0</tlib-version>
+  <short-name>templating</short-name>
+  <uri></uri>
+  <tag>
+    <description>Tag to render a specific content region's in-context edit around an area of HTML without the region
+         functionality. Useful when javascript is used to render a region. Some of the attributes of this tag have been
+         deprecated in favour of better management and configuration of regions through the UI.</description>
+    <name>contentRegionInContextEdit</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.ContentRegionInContextEditTagSupport</tag-class>
+    <body-content>JSP</body-content>
+    <attribute>
+      <description>Specifies the name of the region.</description>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the scope of the region. This attribute has been deprecated. </description>
+      <name>scope</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the list of component types that are allowed to be placed in the region
+            This attribute has been deprecated.</description>
+      <name>types</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the time to live setting for the component configured in the region. This attribute
+             has been deprecated.</description>
+      <name>ttl</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <example>
+        <![CDATA[
+        <tr>
+        <td><templating:contentRegion name="regionleft"
+        scope="page" /></td>
+        <td><templating:contentRegion name="region2"
+        scope="template" /></td>
+        <td><templating:contentRegion name="region3"
+        scope="page" /></td>
+        </tr>
+        <tr>
+        <td><templating:contentRegion name="regionlowerleft"
+        scope="page" displayInContextEdit="false" /></td>
+        <td><templating:contentRegion name="regionlowermiddle"
+        scope="template" displayInContextEdit="false" /></td>
+        <td><templating:contentRegion name="regionlowerright"
+        scope="page" /></td>
+        </tr>
+        ]]>
+    </example>
+    <description>Defines a content region within the layout. Some of the attributes of this tag have been
+         deprecated in favour of better management and configuration of regions through the UI.
+    </description>
+    <name>contentRegion</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.ContentRegionTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>Specifies the name of the region.</description>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the scope of the region. This attribute has been deprecated. </description>
+      <name>scope</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the list of component types that are allowed to be placed in the region
+            This attribute has been deprecated.</description>
+      <name>types</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the xsl that should be used to render the content of the region.
+            This attribute has been deprecated. To specify an XSL view that should render the component create a DisplayView
+            object with the xsl and configure the component to use the DisplayView.</description>
+      <name>xsl</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the JSP that should be used to render the content of the region.
+            This attribute has been deprecated. To specify a JSP view that should render the component create a DisplayView
+            object with the jsp and configure the component to use the DisplayView.</description>
+      <name>jsp</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies whether the incontext editing controls for this region should be displayed or not. A value
+             of true means that the incontext editing controls for the region will be displayed within the region itself.
+             A value of false implies that the controls are not displayed within the region. If needed a contentRegionIncontextEdit
+             tag can be used to display the incontext editing controls elsewhere on the page.</description>
+      <name>displayInContextEdit</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the time to live setting for the component configured in the region. This attribute
+             has been deprecated.</description>
+      <name>ttl</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <description>Defines an item region within the layout. An item region displays a content item and is intended to
+        be used on content item pages. This tag has been deprecated.</description>
+    <name>itemRegion</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.ItemRegionTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>Specifies the xsl that should be used to render the content item.</description>
+      <name>xsl</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the jsp that should be used to render the content item.</description>
+      <name>jsp</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies whether or not the incontext editing controls for this region be displayed.</description>
+      <name>displayInContextEdit</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the time to live setting for the content item displayed within the region.</description>
+      <name>ttl</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
+    EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <templating:xhtml/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Script-Type" content="text/
+    javascript"/>
+    </head>
+    <body>
+    <templating:pageLayout/>
+    <templating:in-context-edit/>
+    </body>
+    </html>
+    ]]>
+    </example>
+    <description>Loads in-context editing tools. Use this tag in a template to enable the editing tools in the preview environment.</description>
+    <name>in-context-edit</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.PageInContextEditTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>DHTML</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>unsupported</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <description>Tag to render an entire page</description>
+    <name>displayPage</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.DisplayPageTagSupport</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    The following example builds a link to a static file:
+
+        <templating:contentLink var="imageUrl"
+        placementPath="${image.placementPath}"/>
+
+    The following example builds a link to the home channel:
+
+        <a href='<page:contentLink oid="${homeChannelId}"
+        format="${format}"/>' />Home Channel</a>
+
+    This example builds a link to related content
+
+            <templating:contentLink var="linkUrl" channelId="$
+        {currentChannel.systemId}" oid="$
+        {link.relatedId.systemId}"/>
+        <a href="${linkUrl}">${link.relatedId.title}</a>
+    ]]>
+    </example>
+    <description>Tag to build a link to a content instance, channel or a static file. For building a link to a content instance
+        the oid attribute must be specified. For building a link to a static file either the oid or the placementpath
+        attribute must be specified. If both the oid and placementPath attributes are specified for a static file then the
+        placementPath will be ignored and oid will be used for building the link</description>
+    <name>contentLink</name>
+    <tag-class>com.vignette.ext.templating.taglib.LinkTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The id of the content instance, channel or static file for which a link should be built. For static
+            files the oid attribute takes precedence over placementPath if both these attributes are specified</description>
+      <name>oid</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the vgnextpath attribute for the link. Not applicable for static file</description>
+      <name>path</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>specifies the channel context id. Not applicable for static file</description>
+      <name>channelId</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the format. Not applicable for static file</description>
+      <name>format</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies whether to generate Full URL. Not applicable for static file</description>
+      <name>generateFull</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>This attribute is applicable only for static files. When building a link to a static file either
+            the oid or the placementPath can be specified. If both are specified then the oid will be used for building the
+            link and the placementPath attribute will be ignored</description>
+      <name>placementPath</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>
+            Specifies whether link builder can assume that the static file is in the default file source. This attribute works in conjunction
+            with placementPath attribute. This attribute is valid only if placementPath is set and oid is not set. This property is only used
+            on management stage and affects how the link is built for the static file on the management stage. If defaultFileSourceOnly attribute
+            is set as false then on management stage the link builder has to determine if the file is in default file source or not in order to
+            build the link. If the file is in default file source then a file_source link is built, otherwise a cda viewer link is built.
+
+            Setting the defaultFileSourceOnly property does not have any effect on delivery stages. On delivery stages links for static files are
+            always built using the URL path prefix mechanism. The name of the URL path prefix resource that will be used is "static_file".
+
+            </description>
+      <name>defaultFileSourceOnly</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies whether link should be tracked. Not applicable for static file</description>
+      <name>trackLink</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>If this attribute is specified then instead of printing the link on the page it will be stored
+            with this name in requested scope or the default scope</description>
+      <name>var</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Specifies the scope in which the link must be stored. This is valid only when the var attribute
+            is specified. If scope is not specified then it uses page scope by default.</description>
+      <name>scope</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+        <description>specifies locale. Not applicable for static file</description>
+        <name>locale</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <description>specifies external ObjectId. </description>
+        <name>extObjId</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <description>specifies external object's parent </description>
+        <name>extObjParentId</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <description>Specifies the siteid to be considered by the link builder while building the link</description>
+        <name>siteId</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <example>
+        <![CDATA[
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
+    EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <templating:xhtml/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Script-Type" content="text/
+    javascript"/>
+    <templating:styleSheet />
+    </head>
+    <body>
+    <templating:pageLayout/>
+    <templating:in-context-edit/>
+    </body>
+    </html>
+    ]]>
+    </example>
+    <description>Tag to output the stylesheet used for the in-context editing tools. This tag only produces output when invoked in a preview environment.</description>
+    <name>styleSheet</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.StyleSheetTagSupport</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
+    EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <templating:xhtml/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Script-Type" content="text/
+    javascript"/>
+    <templating:theme />
+    </head>
+    <body>
+    <templating:pageLayout/>
+    <templating:in-context-edit/>
+    </body>
+    </html>
+    ]]>
+    </example>
+    <description>This tag is used to render associated theme.</description>
+    <name>theme</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.ThemeTagSupport</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <description>This tag is used to provide a list of arguments for the explicitDependencies tag.</description>
+    <name>dependency</name>
+    <tag-class>com.vignette.ext.templating.taglib.DependencyTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The id of the object to be added as a dependency for the current page being rendered</description>
+      <name>objectId</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
+    EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <templating:xhtml/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Script-Type" content="text/
+    javascript"/>
+    <templating:styleSheet />
+    </head>
+    <body>
+    <templating:pageLayout/>
+    <templating:in-context-edit/>
+    </body>
+    </html>
+    <templating:trackDependencies/>
+    ]]>
+    </example>
+    <description>This tag passes the dependencies of a rendered page to HPD for caching.  This tag must be called at the end of the JSP within a finally block.</description>
+    <name>trackDependencies</name>
+    <tag-class>com.vignette.ext.templating.taglib.TrackDependenciesTagSupport</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <description>This tag adds the specified objects to the list of dependencies of the page. This tag may be called anywhere within the page, but before the trackDependencies tag.</description>
+    <name>explicitDependencies</name>
+    <tag-class>com.vignette.ext.templating.taglib.ExplicitDependenciesTagSupport</tag-class>
+    <body-content>JSP</body-content>
+  </tag>
+  <tag>
+    <description>Tag to render pagination to display of Query Content Component results</description>
+    <name>pagination</name>
+    <tag-class>com.vignette.ext.templating.taglib.PaginationTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+        <description>Start index for the pagination results.</description>
+        <name>currentStartIndex</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Designates whether the link to the Next page has to be enabled or not</description>
+      <name>enableNext</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+       <description>Designates whether the link to the Previous page has to be enabled or not</description>
+      <name>enablePrevious</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Designates label to be used for the ui control - PREVIOUS (useful for localization)</description>
+      <name>previousLabel</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Designates label to be used for the ui control - NEXT (useful for localization)</description>
+      <name>nextLabel</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Designates the style to be used for NEXT and PREVIOUS ui controls</description>
+      <name>style</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <description>
+            Tag to add contextual dependencies for a content type query.
+        </description>
+    <name>queryContextualDependencies</name>
+    <tag-class>com.vignette.ext.templating.taglib.QueryContextualDependenciesTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The name of the Content Type (if any) being used in the Query which should be added as a dependency for the current page being rendered.</description>
+      <name>contentTypeName</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The Id of the Channel(if any) being used as the contextual channel in the Query which should be added as a dependency for the
+          current page being rendered.
+      </description>
+        <name>channelId</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Indicates if the System attribute ("Name") is used in the custom Query to add the appropriate invalidation rule as a contextual dependency.</description>
+      <name>usesName</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Indicates if the query references any attributes from the primary relation of the Content Type (if any), based on which appropriate invalidation
+          rule will be added as a contextual dependency.
+      </description>
+        <name>usesPrimaryAttrs</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Indicates if the query references any extensible attributes of the Content Type (if any), based on which appropriate invalidation
+          rule will be added as a contextual dependency.
+      </description>
+      <name>usesExtensibleAttrs</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Indicates if the query references any attributes from the secondary relations of the Content Type (if any), based on which appropriate invalidation
+          rule will be added as a contextual dependency.
+      </description>
+      <name>usesSecondaryAttrs</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <description>
+            Tag to add contextual dependencies for channels involved in building custom Links.
+        </description>
+    <name>chanNavContextualDependencies</name>
+    <tag-class>com.vignette.ext.templating.taglib.ChanNavContextualDependenciesTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The ID of the channel which needs to be added as a dependency for the current page being rendered.</description>
+      <name>channelId</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The Style (treeview/toplevel/currentlevel/breadcrumb) in which the channel link is being built. Based on the style
+                   attribute the appropriate contextual invalidation rule will be picked.
+      </description>
+        <name>style</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <description>
+            Tag to allow registration of the multilingual Contextual Dependencies (TranslationGroup and Locale) directly instead of going through the content component rendering.
+        </description>
+    <name>mlcAttrRulesContextualDependencies</name>
+    <tag-class>com.vignette.ext.templating.taglib.MlcAttrContextualDependenciesTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The ID of the managed object which needs to be added as a dependency for the current page being rendered.</description>
+      <name>managedObjectId</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
+    EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <templating:xhtml/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Script-Type" content="text/
+    javascript"/>
+    </head>
+    <body>
+    <templating:pageLayout/>
+    </body>
+    </html>
+    ]]>
+    </example>
+    <description>This tag is used to render a managed page layout</description>
+    <name>pageLayout</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.PageLayoutTagSupport</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@taglib uri="/WEB-INF/vgnExtTemplating.tid"prefix="page"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/
+    core" %>
+    <%@ page contentType="text/html" %>
+    <%@taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <%- initialize component &amp; results -%>
+    <templating:initComponent/>
+    ]]>
+    </example>
+    <description>Initializes the view for a component and prepares it for presentation. This tag places the component bean, display view parameters and optionally the component xml in the specified scope.</description>
+    <name>initComponent</name>
+    <tag-class>com.vignette.ext.templating.taglib.InitComponentTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The name with which the component bean will be stored in the specified scope.</description>
+      <name>var</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The name with which the display view parameter map of the component will be stored in the specified
+        scope.</description>
+      <name>params</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The name with which the component's xml will be stored in the specified scope.</description>
+      <name>xml</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The scope in which the information returned by the tag should be stored.</description>
+      <name>scope</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <description>Given an id, creates a javabean representation of a content instance, channel, site, object type or a static file and places the javabean in the specified scope.</description>
+    <name>bean</name>
+    <tag-class>com.vignette.ext.templating.taglib.BeanTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The name with which the bean will be stored in one of the scopes specified.</description>
+      <name>var</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The content management id of the object whose javabean needs to be created.</description>
+      <name>oid</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The scope in which the bean must be stored.</description>
+      <name>scope</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <description>Initializes the view for a content select component. This tag places the component bean, display view parameters, the referenced content item to be displayed (only if the component is a content select component) and optionally the component xml in the specified scope.</description>
+    <name>contentItem</name>
+    <tag-class>com.vignette.ext.templating.taglib.ContentItemTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The name with which the component bean will be stored in the specified scope.</description>
+      <name>var</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The name with which the display view parameter map of the component will be stored in the specified
+          scope.</description>
+      <name>params</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The name with which the component's xml will be stored in the specified scope.</description>
+      <name>xml</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The name with which the referenced item will be stored in the specified scope.</description>
+      <name>result</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The scope in which the information returned by the tag should be stored.</description>
+      <name>scope</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The name with which the error information will be stored in the specified scope whenever referenced item of the content select component is not found or removed</description>
+      <name>error</name>
+    </attribute>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
+    EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <templating:xhtml/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Script-Type" content="text/
+    javascript"/>
+    <templating: metaTitle/>
+    </head>
+    <body>
+    <templating:pageLayout/>
+    <templating:in-context-edit/>
+    </body>
+    </html>
+    ]]>
+    </example>
+      <description>This tag is used to print meta title for page or content instance page</description>
+      <name>metaTitle</name>
+      <tag-class>com.vignette.ext.templating.mvc.taglib.MetaTitleTagSupport</tag-class>
+      <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
+    EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <templating:xhtml/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Script-Type" content="text/
+    javascript"/>
+    <templating:metaKeywords/>
+    </head>
+    <body>
+    <templating:pageLayout/>
+    <templating:in-context-edit/>
+    </body>
+    </html>
+    ]]>
+    </example>
+    <description>This tag is used to print meta keywords for page or content instance page</description>
+    <name>metaKeywords</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.MetaKeywordsTagSupport</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
+    EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <templating:xhtml/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Script-Type" content="text/
+    javascript"/>
+    <templating:metaDescription/>
+    </head>
+    <body>
+    <templating:pageLayout/>
+    <templating:in-context-edit/>
+    </body>
+    </html>
+    ]]>
+    </example>
+    <description>This tag is used to print meta description for page or content instance page</description>
+    <name>metaDescription</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.MetaDescriptionTagSupport</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
+    EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <templating:xhtml/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Script-Type" content="text/
+    javascript"/>
+    <templating:metaDescription/>
+    <templating:metaKeywords/>
+    <templating:metaTitle/>
+    <templating:pageMetaTag/>
+    <templating:styleSheet />
+    <templating:theme />
+    <templating:scripts/>
+    </head>
+    <body>
+    <templating:pageLayout/>
+    <templating:in-context-edit/>
+    </body>
+    </html>
+    <templating:trackDependencies/>
+    ]]>
+    </example>
+    <description>This tag is used to print meta tags for the page</description>
+    <name>pageMetaTag</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.PageMetaTagSupport</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
+    EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <templating:xhtml/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Script-Type" content="text/
+    javascript"/>
+    <templating:htmlTitleTag/>
+    </head>
+    <body>
+    <templating:pageLayout/>
+    <templating:in-context-edit/>
+    </body>
+    </html>
+    ]]>
+    </example>
+    <description>Tag to output the HTML title tag for Managed and Designed Page templates.</description>
+    <name>htmlTitleTag</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.HtmlTitleTagSupport</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
+    EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <templating:xhtml/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Script-Type" content="text/
+    javascript"/>
+    <templating:metaDescription/>
+    <templating:metaKeywords/>
+    <templating: metaTitle/>
+    <templating:styleSheet />
+    <templating:theme />
+    <templating:scripts/>
+    </head>
+    <body>
+    <templating:pageLayout/>
+    <templating:in-context-edit/>
+    </body>
+    </html>
+    <templating:trackDependencies/>
+    ]]>
+    </example>
+    <description>Render HTML tags as XHTML. When this tag is placed in a template, all subsequent templating tags will render their output as XHTML compliant HTML.</description>
+    <name>xhtml</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.XhtmlTagSupport</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <description>Sorts a list according to the given properties (separated by ",") and order (ascending or descending).
+          Optionally the result can be saved in the specified attribute name and scope.
+        example:
+            templating:sort items="${list}" properties="title,systitle" order="desc"
+            templating:sort items="${unsortedList}" result="sortedList" properties="title"
+      </description>
+    <name>sort</name>
+    <tag-class>com.vignette.ext.templating.taglib.SortTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The items (list) to be sorted.</description>
+      <name>items</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The names of the properties (separated by ",") to be used to sort the list with.</description>
+      <name>properties</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The order to be applied, ascending or descending. If not specified, it defaults to ascending.</description>
+      <name>order</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The name with which the sorted result will be stored in the specified scope. If not specified,
+              the result is saved in the original list.
+          </description>
+      <name>result</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The scope in which the information returned by the tag should be stored.</description>
+      <name>scope</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/
+    core" %>
+    <%@ page contentType="text/html" %>
+    <templating:initRequestContext var="rc"/>
+    <c:forEach var="fragment" items="${rc.componentFragments}">
+    <div style='float:left;'>
+    <c:out value="${fragment.data}" escapeXml="false"/>
+    </div>
+    </c:forEach>
+    ]]>
+    </example>
+    <description>Initializes the RequestContext for the current page context and places it in a user specified variable. If no variable name is specified, the default page scope variable 'requestContext' will be used.</description>
+    <name>initRequestContext</name>
+    <tag-class>com.vignette.ext.templating.taglib.InitRequestContextTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The name with which the request context will be stored in the page scope.</description>
+      <name>var</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@taglib uri="/WEB-INF/vgnExtTemplating.tid"prefix="page"%>
+    An example of allowing inline edit for the title attribute of
+    the textblock component is:
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/
+    core" %>
+    <%@ page contentType="text/html" %>
+    <%@taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <<templating:initComponent/>
+    <c:if test="${not empty component.title}">
+    <h1 class="contentTitle">
+    <templating:textInlineEdit
+    oid="${component.system.id}"
+    attributexmlname=
+    "vgnExtTemplatingComponentTitle">
+    ${component.title}
+    </templating:textInlineEdit>
+    </h1>
+    </c:if>
+    ]]>
+    </example>
+    <description> Introduces inline editing for the given text attribute within the region </description>
+    <name>textInlineEdit</name>
+    <tag-class>com.vignette.ext.templating.taglib.InlineEditTagSupport</tag-class>
+    <body-content>JSP</body-content>
+    <attribute>
+      <description>vcmId  of the content Instance to be edited.</description>
+      <name>oid</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+     <attribute>
+      <description>The xml name of the attribute to be edited.</description>
+      <name>attributexmlname</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+     <attribute>
+      <description>The relationIdentity of the attribute's row to be edited. This attribute is required
+        while editing an attribute within a relation/sub-relation of a content instance or content component.
+        Usually this can be retrieved using: content.relation1[0].relation2[1].inst.relationIdentity
+      </description>
+      <name>relationIdentity</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+     </attribute>
+  </tag>
+    <tag>
+        <description>Introduces external content indicator node for the given attribute within a displayview
+        </description>
+        <name>externalcontent</name>
+        <tag-class>com.vignette.ext.templating.taglib.ExternalContentTagSupport</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+
+    <tag>
+        <description>Sets the enrichment content (bean) of the given external item in the pagecontext's scope.
+        </description>
+        <name>enrichmentcontent</name>
+        <tag-class>com.vignette.ext.templating.taglib.EnrichmentContentTagSupport</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <description>externalItemId of the external content to which enrichment content to be returned.</description>
+            <name>externalItemId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>If this attribute is specified then the enrichment managedobject will be kept in
+                page context with the given name. If this is not given, it sets to 'extenalcontent' name.</description>
+            <name>varName</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>Specifies the scope in which this object must be stored. This is valid only when the var attribute
+                is specified. If scope is not specified then it uses page scope by default.</description>
+            <name>varScope</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+  <tag>
+    <example>
+    <![CDATA[
+    <templating:imageInlineEdit oid="${component.system.id}"
+    attributexmlname="image">
+    <%
+    String filePlacementPath=
+    (String)request.getAttribute("filePlacementPath");
+    StaticFile sf = PageUtil.getStaticFile(filePlacementPath);
+    String contentManagementId =
+    sf.getContentManagementId().getId();
+    %>
+    <%=MediaTagFactory.getMediaWrapperTag(contentManagementId)%>
+    </templating:imageInlineEdit>
+    ]]>
+    </example>
+    <description> Introduces inline editing for the given image attribute within the region </description>
+    <name>imageInlineEdit</name>
+    <tag-class>com.vignette.ext.templating.taglib.ImageInlineEditTagSupport</tag-class>
+    <body-content>JSP</body-content>
+    <attribute>
+      <description>vcmId  of the content Instance to be edited.</description>
+      <name>oid</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+     <attribute>
+      <description>The xml name of the attribute to be edited.</description>
+      <name>attributexmlname</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+   <tag>
+    <example>
+    <![CDATA[
+    <page:pageFeature featureName='PageFeature1'>
+    Out.println(" HELLO , This is page Feature1");
+    </page:pageFeature>
+    ]]>
+    </example>
+    <description>Verifies the validity of the given page feature for the given object. If the feature is disabled for a specific object, the tag body doesn't get rendered.
+        This tag takes care of rendering the page resources associated to the given page feature (considering the values provided for the includeResources and resourcenames)
+        and displays the value of the body for the mentioned resourcenames.
+    </description>
+    <name>pageFeature</name>
+    <tag-class>com.vignette.ext.templating.taglib.PageFeatureTagSupport</tag-class>
+    <body-content>JSP</body-content>
+    <attribute>
+      <description>The unique name of the feature to be rendered.</description>
+      <name>featureName</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+       <attribute>
+        <description>Boolean value (true|false) to indicate if the body of the mentioned resources should be written to the respsonse or not.</description>
+        <name>includeResources</name>
+        <required>false</required>
+        <type>java.lang.Boolean</type>
+        <rtexprvalue>false</rtexprvalue>
+      </attribute>
+       <attribute>
+    <description>List of Names indicating the resources to be included in the response. The valid format of these names list is: [resourcename1,resourcename2, ---].
+        The tag displays all resources associated to the page feature in case no value is mentioned in the tag when includeResources is true.
+    </description>
+        <name>resourceNames</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+      </attribute>
+  </tag>
+  <tag>
+    <example>
+    <![CDATA[
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="/WEB-INF/vgnExtTemplating.tld"
+    prefix="templating" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//
+    EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <templating:xhtml/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Script-Type" content="text/
+    javascript"/>
+    <templating:metaDescription/>
+    <templating:metaKeywords/>
+    <templating: metaTitle/>
+    <templating:styleSheet />
+    <templating:theme />
+    <templating:scripts/>
+    </head>
+    <body>
+    <templating:pageLayout/>
+    <templating:in-context-edit/>
+    </body>
+    </html>
+    ]]>
+    </example>
+    <description>Loads supporting scripts for the X-Templating webapp.</description>
+    <name>scripts</name>
+    <tag-class>com.vignette.ext.templating.mvc.taglib.ScriptsTagSupport</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+    <tag>
+        <description>Tag to enable localized reference attributes to be generated.</description>
+        <name>localizeReferences</name>
+        <tag-class>com.vignette.ext.templating.taglib.PageLocalizeReferencesTagSupport</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <description>Provides support to retrieve (non-localized) channel metadata</description>
+        <name>channelMetadata</name>
+        <tag-class>com.vignette.ext.templating.taglib.ChannelMetadataTagSupport</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <description>vcmId  of the channel.</description>
+            <name>oid</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>The name with which the metadata's xml will be stored in the request. Default="result".</description>
+            <name>result</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Provides support to retrieve localized channel metadata</description>
+        <name>channelLocalizedMetadata</name>
+        <tag-class>com.vignette.ext.templating.taglib.ChannelLocalizedMetadataTagSupport</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <description>vcmId  of the channel.</description>
+            <name>oid</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>The name with which the metadata's xml will be stored in the request. Default="result".</description>
+            <name>result</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+    <example>
+    <![CDATA[
+    <div>
+    <templating:textInlineEdit oid="${component.system.id}"
+    attributexmlname="text">
+    <templating:LinkTranslator
+    inputText="${component.text}">
+    </templating:LinkTranslator>
+    </templating:textInlineEdit>
+    </div>
+    ]]>
+    </example>
+        <description>Provides support to translate the inline links to appropriate (Legacy/Canonical) style links</description>
+        <name>LinkTranslator</name>
+        <tag-class>com.vignette.ext.templating.taglib.LinkTranslatorTagSupport</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <description>The Text which contains the inline links to be translated</description>
+            <name>inputText</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Provides support to have in context editing ability for channels content instances and static files</description>
+        <name>editPencil</name>
+        <tag-class>com.vignette.ext.templating.taglib.InContextEditPencilTagSupport</tag-class>
+        <attribute>
+            <description>The content management id of the object to be enabled for in-context editing</description>
+            <name>oid</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Provides support to retrieve responsive options associated to each component or each region depending the scope specified, on a page and render it in a javascript object.
+        For example if the javascriptObjectName is "foo", the javascript returned will be something like for component "var foo=foo||{};
+        foo['region1GUID']={'component1GUID':{'group1Name':{'menu1Name': 'responsiveoptionvalue1 responsiveoptionvalue2', 'menu2Name: 'responsiveoptionvalue3'},
+        'group2Name': {'menu3Name': 'responsiveoptionvalue4'}}, 'component2GUID':{'group3Name': {'menu4Name': 'responsiveoptionvalue5'}}};
+        foo['region2GUID']=('component3GUID': {'group4Name': {'menu5Name': 'responsiveoptionvalue6 responsiveoptionvalue7'}});"
+
+        Where as for Region it will be like "var foo=foo||{};
+        foo ={'region1GUID':{'group1Name':{'menu1Name': 'responsiveoptionvalue1 responsiveoptionvalue2', 'menu2Name: 'responsiveoptionvalue3'},
+        'group2Name': {'menu3Name': 'responsiveoptionvalue4'}}, 'region2GUID':{'group1Name': {'menu1Name': 'responsiveoptionvalue5'}}};"
+
+        </description>
+        <name>responsiveOptionsScript</name>
+        <tag-class>com.vignette.ext.templating.mvc.taglib.ResponsiveOptionsScriptTagSupport</tag-class>
+        <body-content>JSP</body-content>
+       <attribute>
+            <description>Boolean flag which indicates, the generated html should exclude the script tag or not. Default value is false
+            </description>
+            <name>excludeScriptTag</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <description>The javascript object's name. Default="OT.wem.responsiveoptions".</description>
+            <name>javascriptObjectName</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>The scope, to which responsive options to be fetched</description>
+            <name>scope</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+    <example>
+    <![CDATA[
+    <templating:contentlistdraggable vcmId="oid">
+    markup to display for the list item
+    </templaing:contentListDraggable>
+    ]]>
+    </example>
+        <description>This tag enables drag and drop of a content item in a content list component.</description>
+        <name>contentListDraggable</name>
+        <tag-class>com.vignette.ext.templating.taglib.ContentListDragSupport</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <description>The vcm id of the content item.</description>
+            <name>vcmId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>The drag text for the content item.
+                If not specified, the drag text will be the content of the child elements.
+            </description>
+            <name>vcmName</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <description>This tag enables drag and drop of a external item in a external content list component.</description>
+        <name>externalContentListDrag</name>
+        <tag-class>com.vignette.ext.templating.taglib.ExternalContentListDragTagSupport</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <description>The id of the external item.</description>
+            <name>wemXItemId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>The drag text for the external item. If not specified, the drag text will be the content of the child elements.
+            </description>
+            <name>wemXItemName</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <example>
+           <![CDATA[
+               <templating:componentpresentationproperties componentId="${componentId}" presentationPropertyNames="prop1,prop2" varName="myproperties" varScope="1/2/3/4}" />
+           ]]>
+        </example>
+        <description>Sets the presentation properties (map)of the given content component within the page context.
+            The optional attribute "presentationPropertyNames" takes a comma separated list of property names.
+            The value set in the page context contains the map of key/values for the properties mentioned
+            within the presentationPropertyNames attribute. If no value is provided for presentationPropertyNames,
+            this sets all properties and their values within the pagecontext for varname.
+        </description>
+        <name>componentpresentationproperties</name>
+        <tag-class>com.vignette.ext.templating.taglib.ComponentPresentationPropertiesTagSupport</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <description>The id of the content component.</description>
+            <name>componentId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>The comma separated string of presentation property names.
+            If not specified or empty, it defaults to to all properties</description>
+            <name>presentationPropertyNames</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>If this attribute is specified then the presentation properties will be kept in
+                page context with the given name.
+                If no value is provided, it sets to "properties" variable within the page context.</description>
+            <name>varName</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>Specifies the scope in which this object must be stored. This is valid only when the var attribute
+                is specified. If scope is not specified then it uses page scope by default. For PAGE_SCOPE - 1, REQUEST_SCOPE - 2, SESSION_SCOPE - 3, APPLICATION_SCOPE - 4.
+            </description>
+            <name>varScope</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Tag to include adaptive media responsive image js library and stylesheet.</description>
+        <name>adaptiveMediaScript</name>
+        <tag-class>com.vignette.ext.templating.taglib.AdaptiveMediaScriptTagSupport</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+       <example>
+          <![CDATA[
+             <templating:adaptiveMediaResponsiveImage deliveryURL="${deliveryServiceURL}" widthParamName="${widthParamName}" dprValue="auto" />
+          ]]>
+            </example>
+            <description>Creates adaptive media responsive image tag for the given content component.
+              The tag "adaptiveMediaScript" is a prerequisite for using this tag.
+            </description>
+            <name>adaptiveMediaResponsiveImage</name>
+            <tag-class>com.vignette.ext.templating.taglib.AdaptiveMediaResponsiveImageTagSupport</tag-class>
+            <body-content>empty</body-content>
+       <attribute>
+           <description>The value of delivery adaptive media URL for which responsive image behaviour is required.</description>
+           <name>deliveryURL</name>
+           <required>true</required>
+           <rtexprvalue>true</rtexprvalue>
+       </attribute>
+       <attribute>
+           <description>The width parameter name that is configured at adaptive media profile file.</description>
+           <name>widthParamName</name>
+           <required>true</required>
+           <rtexprvalue>true</rtexprvalue>
+       </attribute>
+       <attribute>
+           <description>The device pixel ratio(dpr) value.
+           The optional attribute takes a single value 'auto' renders the image with dpr capability for devices with hi-dpi. Default is 1.</description>
+           <name>dprValue</name>
+           <required>false</required>
+           <rtexprvalue>true</rtexprvalue>
+       </attribute>
+    </tag>
+    <tag>
+       <example>
+           <![CDATA[
+               <templating:printLabelBreadCrumb managedObjectId="${componentId}" labelIds="${labelIDs}" labelNameSeparator="-->" breadCrumbSeparator="<br/>" />
+            ]]>
+       </example>
+       <description>This tag is used to print the bread crumb of the label (Atleast one of the (labelIds/managedObjectId) parameters is required)</description>
+       <name>printLabelBreadCrumb</name>
+       <tag-class>com.vignette.ext.templating.taglib.PrintLabelBreadCrumbTagSupport</tag-class>
+       <body-content>empty</body-content>
+       <attribute>
+           <description>The labelIds of the labels to which breadcrumb need to be printed. Single Id can be provided or it can be multiple ids
+           with comma(,) separated</description>
+           <name>labelIds</name>
+           <required>false</required>
+           <rtexprvalue>true</rtexprvalue>
+       </attribute>
+       <attribute>
+            <description>The managed object id whose associated labels breadcrumb path need to be fetched.</description>
+            <name>managedObjectId</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+       </attribute>
+       <attribute>
+           <description>If specified it will be used as separator between label names in bread crumb, otherwise default (>>) will be used.</description>
+           <name>labelNameSeparator</name>
+           <required>false</required>
+           <rtexprvalue>false</rtexprvalue>
+       </attribute>
+       <attribute>
+           <description>If specified it will be used as separator between bread crumbs, otherwise default (<![CDATA['<br />']]>) will be used.</description>
+           <name>breadCrumbSeparator</name>
+           <required>false</required>
+           <rtexprvalue>false</rtexprvalue>
+       </attribute>
+    </tag>
+    <tag>
+       <example>
+            <![CDATA[
+               <templating:optimizationGlobalInclude/>
+            ]]>
+       </example>
+       <description>Optimization provider provides functionally for creating experiments and analytics.
+            Optimization global java script to be included in the page which enables experiments and analytics.
+            This tag includes required java script URI in to the page.</description>
+       <name>optimizationGlobalInclude</name>
+       <tag-class>com.vignette.ext.templating.taglib.OptimizationGlobalIncludeTagSupport</tag-class>
+       <body-content>empty</body-content>
+    </tag>
+    <tag>
+       <example>
+            <![CDATA[
+               <templating:optimizationPageInclude/>
+            ]]>
+       </example>
+       <description>Optimization provider provides functionally for creating experiments and analytics.
+            Optimization page java script to be executed in the page which enables experiments and analytics.
+            This tag executes required java script in to the page.</description>
+       <name>optimizationPageInclude</name>
+       <tag-class>com.vignette.ext.templating.taglib.OptimizationPageIncludeTagSupport</tag-class>
+       <body-content>empty</body-content>
+    </tag>
+</taglib>

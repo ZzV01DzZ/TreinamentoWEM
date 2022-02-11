@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
+	<description>Dynamic Site Module and Dynamic Portal Module component AJAX Tag library.
+        This tag library contains the tags defined for the delivery application component URL tags.
+    </description>
+	<display-name>Dynamic Site Module and Dynamic Portal Module component AJAX Tag library</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>component-url</short-name>
+	<uri></uri>
+	<tag>
+		<description>This taglib is used for adding id-URL pair to urls for current component in the request context.
+			It will add action url(s) and render url.
+		</description>
+		<name>addURL</name>
+		<tag-class>com.vignette.ext.templating.mvc.taglib.ajax.AddComponentURLTagSupport</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>Boolean flag which indicates, the generated html should exclude the script tag or not. Default value is false
+			</description>
+			<name>excludeScriptTag</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Comma delimited list of url parameter that need to be dynamic.  These parameters will be tokenized.  For example if the value is "foo,bar", the url returned will 
+			include a token in the place of the querystring parameter like "foo=%{foo}&amp;bar=%{bar}". 
+			</description>
+			<name>dynamicParameters</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+	<tag>
+		<description>This taglib is used to remove the component URL from the urls by id and action key combination.
+		</description>
+		<name>removeURL</name>
+		<tag-class>com.vignette.ext.templating.mvc.taglib.ajax.RemoveComponentURLTagSupport</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>The id String.</description>
+			<name>id</name>
+			<rtexprvalue>true</rtexprvalue>
+			<required>required</required>
+		</attribute>
+		<attribute>
+			<description>The action key String.
+				If the there is no action key it'll remove render URL.</description>
+			<name>action</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Boolean flag indicating if the generated html should exclude the script tag or not. Default value is false
+			</description>
+			<name>excludeScriptTag</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+	<tag>
+		<description>This taglib is used to Perform an asynchronous HTTP (AJAX) request using POST method by id and action.
+			If the data is empty, the request will be a GET.  If the action is empty , it'll execute component render URL.
+		</description>
+		<name>executeURL</name>
+		<tag-class>com.vignette.ext.templating.mvc.taglib.ajax.ExecuteComponentURLTagSupport</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>Id to be used as a key to get the component URL.</description>
+			<name>id</name>
+			<rtexprvalue>true</rtexprvalue>
+			<required>required</required>
+		</attribute>
+		<attribute>
+			<description>The action key to perform on this component.
+				If action key is empty it execute the component render URL.</description>
+			<name>action</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>A function to be called if the request succeeds.
+				Success handler receives following parameters.
+					1. The data returned from the server,
+					2. Formatted according to the dataType parameter;
+					3. A string describing the status</description>
+			<name>success</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<description>data to be sent to the server.</description>
+			<name>data</name>
+			<type>java.lang.Object</type>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>A function to be called if the request fails.</description>
+			<name>error</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>A function to be called when the request completes.</description>
+			<name>complete</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>A function to be called before the request is sent.</description>
+			<name>beforeSend</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>A object containing key value pairs for the dynamic parameters in the url.</description>
+			<name>dynamicParameterData</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Host to use to perform the asynchronous HTTP (AJAX) request.  Use quotes around
+                literal strings, or pass a javascript variable name.</description>
+			<name>host</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Port to use to perform the asynchronous HTTP (AJAX) request.  This defaults to "80"
+                and will only be used if the host is also provided.  Use quotes around literal strings, or pass
+                a javascript variable name.</description>
+			<name>port</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Protocol to use to perform the asynchronous HTTP (AJAX) request.  This defaults to "http"
+                and will only be used if the host is also provided.  Use quotes around literal strings, or pass
+                a javascript variable name.</description>
+			<name>protocol</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Boolean flag indicating if the request should be asynchronous or not. 
+			Default value is true, the request is asynchronous.</description>
+			<name>async</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Boolean flag indicating if the generated html should exclude the script tag or not. Default value is false.
+			</description>
+			<name>excludeScriptTag</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+</taglib>

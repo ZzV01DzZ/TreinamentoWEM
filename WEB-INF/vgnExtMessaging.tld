@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
+	<description>Dynamic Site Module and Dynamic Portal Module Messaging Tag library.
+        This tag library contains the tags defined for the delivery application messaging tags.
+    </description>
+	<display-name>Dynamic Site Module and Dynamic Portal Module Messaging Tag library</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>messaging</short-name>
+	<uri></uri>
+	<tag>
+		<description>This taglib is used for listening message event types from the specified origin(s).
+		</description>
+		<name>listen</name>
+		<tag-class>com.vignette.ext.templating.mvc.taglib.messaging.ListenMessageTagSupport</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>Single message event type or list of the message event types seperated by comma.</description>
+			<name>eventType</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<description>The javascript listener function which listens any message event types</description>
+			<name>listener</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<description>The origin of the document that sent the message (typically the scheme, hostname
+				and port of the document.for example: http://domain.example:80)
+			</description>
+			<name>origin</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Boolean flag indicates if the listenOnce is true then the javascript listener is called only once
+				and is then unregistered else the javascript listener is called multiple times. Default value is false
+			</description>
+			<name>listenOnce</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>javascript variable with id for listener</description>
+			<name>listenerId</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Boolean flag indicating if the generated html exclude the script tag. Default value is false
+			</description>
+			<name>excludeScriptTag</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+	<tag>
+		<description>This taglib is used for post a message event type to the specified destination(s).</description>
+		<name>post</name>
+		<tag-class>com.vignette.ext.templating.mvc.taglib.messaging.PostMessageTagSupport</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>Message event type.</description>
+			<name>eventType</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<description>The javascript data object</description>
+			<name>data</name>
+			<type>java.lang.Object</type>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<description>The destination of the document that post the message (typically the scheme, hostname
+				and port of the document.for example: http://domain.example:80)
+			</description>
+			<name>destination</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Boolean flag indicating if the generated html exclude the script tag. Default value is false
+			</description>
+			<name>excludeScriptTag</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+	<tag>
+		<description>This taglib is used for adding name value pair to context</description>
+		<name>addContext</name>
+		<tag-class>com.vignette.ext.templating.mvc.taglib.messaging.AddContextTagSupport</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>The name string</description>
+			<name>name</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<description>The value object</description>
+			<name>value</name>
+			<type>java.lang.Object</type>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<description>Boolean flag indicating if the generated html exclude the script tag. Default value is false
+			</description>
+			<name>excludeScriptTag</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+	<tag>
+		<description>This taglib is used for removing the name value pair from context</description>
+		<name>removeContext</name>
+		<tag-class>com.vignette.ext.templating.mvc.taglib.messaging.RemoveContextTagSupport</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>The name string</description>
+			<name>name</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<description>Boolean flag indicating if the generated html exclude the script tag. Default value is false
+			</description>
+			<name>excludeScriptTag</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+	<tag>
+		<description>This taglib is used for toggle context values i.e which removes the name value pair from the
+			context,if the name value pair already exists and adds the name value pair to context if the name value pair
+			is not present
+		</description>
+		<name>toggleContext</name>
+		<tag-class>com.vignette.ext.templating.mvc.taglib.messaging.ToggleContextTagSupport</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>The name string</description>
+			<name>name</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<description>The value object</description>
+			<name>value</name>
+			<type>java.lang.Object</type>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<description>Boolean flag indicating if the generated html exclude the script tag. Default value is false
+			</description>
+			<name>excludeScriptTag</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+</taglib>

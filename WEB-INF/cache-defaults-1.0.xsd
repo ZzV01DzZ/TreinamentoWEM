@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+        xmlns:hpd="http://www.vignette.com/schema/HPD/cache-defaults"
+        targetNamespace="http://www.vignette.com/schema/HPD/cache-defaults">
+	<xs:element name="defaults">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="global-default" minOccurs="0">
+					<xs:complexType>
+						<xs:all>
+                            <xs:element ref="hpd:cacheable" minOccurs="0"/>
+                            <xs:element ref="hpd:cache-by-default" minOccurs="0"/>
+                            <xs:element ref="hpd:revalidation-interval" minOccurs="0"/>
+                            <xs:element ref="hpd:time-to-live" minOccurs="0"/>
+                            <xs:element ref="hpd:regen" minOccurs="0"/>
+                            <xs:element ref="hpd:allow-stale" minOccurs="0"/>
+                            <xs:element ref="hpd:parse-ssi" minOccurs="0"/>
+                            <xs:element ref="hpd:stale-lifetime" minOccurs="0"/>
+							<xs:element ref="hpd:vary-by-header" minOccurs="0"/>
+							<xs:element ref="hpd:vary-by-cookie" minOccurs="0"/>
+							<xs:element ref="hpd:vary-by-query-string" minOccurs="0"/>
+                            <xs:element ref="hpd:vary-by-header-existence" minOccurs="0"/>
+                            <xs:element ref="hpd:vary-by-cookie-existence" minOccurs="0"/>
+                            <xs:element ref="hpd:vary-by-session-attribute" minOccurs="0"/>
+                            <xs:element ref="hpd:ignore-cache-control-headers" minOccurs="0"/>
+                        </xs:all>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="pattern-default" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="url-pattern" type="xs:string"/>
+                            <xs:element ref="hpd:cacheable" minOccurs="0"/>
+							<xs:element ref="hpd:cache-by-default" minOccurs="0"/>
+                            <xs:element ref="hpd:revalidation-interval" minOccurs="0"/>
+							<xs:element ref="hpd:time-to-live" minOccurs="0"/>
+                            <xs:element ref="hpd:regen" minOccurs="0"/>
+                            <xs:element ref="hpd:allow-stale" minOccurs="0"/>
+                            <xs:element ref="hpd:parse-ssi" minOccurs="0"/>
+                            <xs:element ref="hpd:stale-lifetime" minOccurs="0"/>
+							<xs:element ref="hpd:vary-by-header" minOccurs="0"/>
+							<xs:element ref="hpd:vary-by-cookie" minOccurs="0"/>
+							<xs:element ref="hpd:vary-by-query-string" minOccurs="0"/>
+                            <xs:element ref="hpd:vary-by-header-existence" minOccurs="0"/>
+                            <xs:element ref="hpd:vary-by-cookie-existence" minOccurs="0"/>
+                            <xs:element ref="hpd:vary-by-session-attribute" minOccurs="0"/>
+                            <xs:element ref="hpd:ignore-cache-control-headers" minOccurs="0"/>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    <xs:element name="cacheable">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="never"/>
+                <xs:enumeration value="default-yes"/>
+                <xs:enumeration value="default-no"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="cache-by-default" type="xs:boolean"/>
+    <xs:element name="revalidation-interval" type="xs:nonNegativeInteger"/>
+    <xs:element name="stale-lifetime" type="hpd:timespan"/>
+	<xs:element name="time-to-live" type="hpd:timespan"/>
+    <xs:element name="regen" type="hpd:regenspan"/>
+    <xs:element name="allow-stale" type="xs:boolean"/>
+    <xs:element name="parse-ssi" type="xs:boolean"/>
+    <xs:element name="vary-by-header">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header-name" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    <xs:element name="vary-by-cookie">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="cookie-name"/>
+                <xs:element name="cookie">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="default" type="xs:string"/>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="vary-by-query-string" type="xs:boolean"/>
+    <xs:simpleType name="regenspan">
+        <xs:union memberTypes="xs:nonNegativeInteger">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="-1"/>
+                    <xs:enumeration value="always"/>
+                    <xs:enumeration value="never"/>
+                    <xs:enumeration value="auto"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:element name="vary-by-session-attribute">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="attribute" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="name" type="xs:string"/>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="timespan">
+        <xs:union memberTypes="xs:nonNegativeInteger">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="-1"/>
+                    <xs:enumeration value="unlimited"/>
+                    <xs:enumeration value="none"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:element name="vary-by-header-existence">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="header-name" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="vary-by-cookie-existence">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cookie-name" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ignore-cache-control-headers" type="xs:boolean"/>
+
+</xs:schema>

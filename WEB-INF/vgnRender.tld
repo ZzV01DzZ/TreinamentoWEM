@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>Vignette Application Services -- Render Tags</shortname>
+	<uri></uri>
+	<info>This tag library contains the tags defined for the Rendering Tags.</info>
+	<tag>
+		<name>trackDependencies</name>
+		<tagclass>com.vignette.ext.templating.taglib.TrackDependenciesTagSupport</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Tag to store the dependencies of a rendering in the Render tables.  Must be called at the end of the JSP.</info>
+	</tag>
+	<tag>
+		<name>explicitDependencies</name>
+		<tagclass>com.vignette.ext.templating.taglib.ExplicitDependenciesTagSupport</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>Tag to store explicit dependencies of a rendering in the Render tables.  May be called anywhere within the page, but before the trackDependencies tag.</info>
+	</tag>
+	<tag>
+		<name>dependency</name>
+		<tagclass>com.vignette.ext.templating.taglib.DependencyTagSupport</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>This tag is used to provide a list of arguments for the ExplicitDependencies tag.</info>
+		<attribute>
+			<name>objectId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>outputExtension</name>
+		<tagclass>com.vignette.as.ui.render.taglib.OutputExtensionTagSupport</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>This tag is used to specify an output extension for a rendition file.</info>
+		<attribute>
+			<name>extension</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

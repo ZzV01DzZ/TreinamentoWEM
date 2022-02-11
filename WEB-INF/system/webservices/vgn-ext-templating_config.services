@@ -1,0 +1,25 @@
+ <service name="DPMSearchService" provider="java:RPC" >
+  <parameter name="allowedMethods" value="*"/>
+  <parameter name="wsdlPortType" value="CPSSearchPort"/>
+  <parameter name="className" value="com.vignette.ext.templating.search.DPMSearchServiceSkeleton"/>
+  <parameter name="wsdlServicePort" value="DPMSearchService"/>
+  <parameter name="wsdlTargetNamespace" value="http://search.portal.vignette.com/"/>
+  <parameter name="wsdlServiceElement" value="CPSSearchPortService"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns1:ArrayOfCPSSearchResult" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:com.vignette.ext.templating.search.CPSSearchResult[]" xmlns:ns1="http://search.portal.vignette.com/"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns2:CPSSearchResult" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.vignette.ext.templating.search.CPSSearchResult" xmlns:ns2="http://search.portal.vignette.com/"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns3:CPSSearchResults" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.vignette.ext.templating.search.CPSSearchResults" xmlns:ns3="http://search.portal.vignette.com/"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns4:ArrayOf_xsd_string" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:java.lang.String[]" xmlns:ns4="http://search.portal.vignette.com/"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns5:CPSSearchSortOrder" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.vignette.ext.templating.search.CPSSearchSortOrder" xmlns:ns5="http://search.portal.vignette.com/"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns6:CPSSearchCriteria" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.vignette.ext.templating.search.CPSSearchCriteria" xmlns:ns6="http://search.portal.vignette.com/"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns7:ArrayOfCPSSearchTerm" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:com.vignette.ext.templating.search.CPSSearchTerm[]" xmlns:ns7="http://search.portal.vignette.com/"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns8:CPSSearchTerm" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.vignette.ext.templating.search.CPSSearchTerm" xmlns:ns8="http://search.portal.vignette.com/"/>
+ </service>
+
+
+
+  <service name="CacheService" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="className" value="com.vignette.ext.templating.cache.CacheWebService"/>
+      <parameter name="allowedMethods" value="*"/>
+     <typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns2:string" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns2="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+  </service>
